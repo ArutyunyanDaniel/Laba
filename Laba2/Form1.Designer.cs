@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
             this.dataGridRoute = new System.Windows.Forms.DataGridView();
             this.dataGridType = new System.Windows.Forms.DataGridView();
             this.dataGridDimension = new System.Windows.Forms.DataGridView();
@@ -46,6 +45,7 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.gMapControl = new GMap.NET.WindowsForms.GMapControl();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridRoute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridDimension)).BeginInit();
@@ -251,11 +251,39 @@
             this.tabPage8.Text = "Brand";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // gMapControl
+            // 
+            this.gMapControl.Bearing = 0F;
+            this.gMapControl.CanDragMap = true;
+            this.gMapControl.EmptyTileColor = System.Drawing.Color.Navy;
+            this.gMapControl.GrayScaleMode = false;
+            this.gMapControl.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.gMapControl.LevelsKeepInMemmory = 5;
+            this.gMapControl.Location = new System.Drawing.Point(16, 12);
+            this.gMapControl.MarkersEnabled = true;
+            this.gMapControl.MaxZoom = 18;
+            this.gMapControl.MinZoom = 2;
+            this.gMapControl.MouseWheelZoomEnabled = true;
+            this.gMapControl.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.gMapControl.Name = "gMapControl";
+            this.gMapControl.NegativeMode = false;
+            this.gMapControl.PolygonsEnabled = true;
+            this.gMapControl.RetryLoadTile = 0;
+            this.gMapControl.RoutesEnabled = true;
+            this.gMapControl.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.gMapControl.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.gMapControl.ShowTileGridLines = false;
+            this.gMapControl.Size = new System.Drawing.Size(442, 267);
+            this.gMapControl.TabIndex = 9;
+            this.gMapControl.Zoom = 0D;
+            this.gMapControl.Load += new System.EventHandler(this.gMapControl_Load);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(935, 522);
+            this.ClientSize = new System.Drawing.Size(657, 522);
+            this.Controls.Add(this.gMapControl);
             this.Controls.Add(this.tabControlTableDB);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -299,6 +327,8 @@
         private System.Windows.Forms.TabPage tabPage8;
 
         #endregion
+
+        private GMap.NET.WindowsForms.GMapControl gMapControl;
     }
 }
 

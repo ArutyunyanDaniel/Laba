@@ -13,6 +13,8 @@ namespace Laba2
     public partial class Form1 : Form
     {
         private MyModel m_dbContext;
+        private Map _map;
+
         public Form1()
         {
             InitializeComponent();
@@ -55,6 +57,12 @@ namespace Laba2
             dataGridExperience.Columns[2].Visible = false;
 
             dataGridRoute.DataSource = m_dbContext.Routes.ToList();
+        }
+
+        private void gMapControl_Load(object sender, EventArgs e)
+        {
+            _map = new Map();
+            _map.Init(ref gMapControl);
         }
     }
 }
