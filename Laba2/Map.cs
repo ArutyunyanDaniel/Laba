@@ -17,6 +17,7 @@ namespace Laba2
         {
             m_overlayMarkers = new GMapOverlay();
             m_overlayRoute = new GMapOverlay();
+            m_gDiractiaon = new GDirections();
         }
 
         public void Init(ref GMapControl gMapControl)
@@ -60,7 +61,26 @@ namespace Laba2
             m_overlayRoute.Clear();
         }
 
+
+        public List<PointLatLng> GetRoute(PointLatLng start, PointLatLng finish)
+        {
+            GMapProviders.GoogleMap.GetDirections(out m_gDiractiaon, start, finish, true, true, false, false, false);
+            return m_gDiractiaon.Route;
+        }
+
+        public string GetRouteDuration()
+        {
+            return m_gDiractiaon.Duration;
+        }
+
+        public string GetRouteDistance()
+        {
+            return m_gDiractiaon.Distance;
+        }
+
+
         private GMapOverlay m_overlayMarkers;
         private GMapOverlay m_overlayRoute;
+        private GDirections m_gDiractiaon;
     }
 }
